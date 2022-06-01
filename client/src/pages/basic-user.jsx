@@ -1,7 +1,3 @@
-import { useEffect, useState } from "react";
-import apiClient from '../helpers/apiClient'
-import dotsSvg from '../assest/images/dots.svg'
-import closedSvg from '../assest/images/close.svg'
 import Navbar from '../components/navbar.js';
 
 function BasicUser() {
