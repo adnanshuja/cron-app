@@ -2,7 +2,10 @@
 import { useState } from 'react';
 import apiClient from '../helpers/apiClient';
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/navbar";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+
+import Navbar from '../components/navbar/navbar';
 
 function CreateCron() {
     const navigate = useNavigate();
@@ -26,7 +29,24 @@ function CreateCron() {
             <h2>Create New Cron Job</h2>
             <h3>[ Only Admin role can create a new Cron job ] </h3>
           </div>
-          <div className="form_wrapper">
+          <Tabs>
+    <TabList>
+      <Tab>Title 1</Tab>
+      <Tab>Title 2</Tab>
+      <Tab>Title 2</Tab>
+    </TabList>
+
+    <TabPanel>
+      <h2>Any content 1</h2>
+    </TabPanel>
+    <TabPanel>
+      <h2>Any content 2</h2>
+    </TabPanel>
+    <TabPanel>
+      <h2>Any content 2</h2>
+    </TabPanel>
+  </Tabs>
+          <div className="form-wrapper">
             <div className="maxwidth-600">
               <form onSubmit={handleSubmit}>
                 <div className="grid-row">

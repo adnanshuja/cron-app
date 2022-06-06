@@ -1,13 +1,10 @@
-import LoginPage from './pages/login';
-import UsersPage from './pages/users';
-import CronPage from './pages/cron';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
+
+import {LoginPage, UsersPage, BasicUser, HomePage, CreateCron, CronPage, ReportsPage} from './pages';
 import ProtectedRoute from './components/protectedRoute';
-import BasicUser from './pages/basic-user';
-import HomePage from './pages/home';
-import ReportsPage from './pages/reports';
-import CreateCron from './pages/create-cron';
+
+import './App.css';
+
 function App() {
   return (
     <main>

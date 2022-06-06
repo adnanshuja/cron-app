@@ -22,7 +22,7 @@ function LoginPage() {
         <div className="container">
             <div className="maxwidth-420">
                 <div className="login-wrap">
-                    <div className="heading-title text-left m-b-0">
+                    <div className="heading-title text-left">
                         <h2 className="m-b-5">Login</h2>                           
                     </div>
                     <div className="form-wrapper ">
@@ -47,7 +47,7 @@ function LoginPage() {
                                     </div>
                                 </div>                                    
                             </div>
-                            <div className="submit-button p-t-5">
+                            <div className="submit-button">
                                 <input type="submit" value="Login " className="theme-btn"/>
                             </div>
                         </form>

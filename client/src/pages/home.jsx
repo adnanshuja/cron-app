@@ -1,18 +1,14 @@
-import Navbar from "../components/navbar";
+import Layout from '../components/layout/layout';
+import { CONSTANTS } from '../helpers/constants';
 
 function HomePage() {
     return (
-        <div className="main-wrapp">
-            <Navbar/>
-            <div className="content-wrap">
-            <section className="section-space">
-                    <div className="heading-title text-left">
-                        <h2>Home page, visible to all users</h2>
-                    </div>
-            </section>
-            </div>
-        </div>
+        <Layout 
+        title={CONSTANTS.pages.Home_Page.title} 
+        subTitle= {CONSTANTS.pages.Home_Page.subTitle}
+        />
     );
-}
-
-export default HomePage;
+  }
+  
+  export default HomePage;
+  

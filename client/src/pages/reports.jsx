@@ -1,18 +1,14 @@
-import Navbar from "../components/navbar";
+import Layout from '../components/layout/layout';
+import { CONSTANTS } from '../helpers/constants';
 
 function ReportsPage() {
     return (
-        <div className="main-wrapp">
-            <Navbar/>
-            <div className="content-wrap">
-            <section className="section-space">
-                    <div className="heading-title text-left">
-                        <h2>Reports Page</h2>
-                    </div>
-            </section>
-            </div>
-        </div>
+        <Layout 
+        title={CONSTANTS.pages.Reports_Page.title} 
+        subTitle= {CONSTANTS.pages.Reports_Page.subTitle}
+        />
     );
-}
-
-export default ReportsPage;
+  }
+  
+  export default ReportsPage;
+  

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import Navbar from '../components/navbar';
+import Navbar from '../components/navbar/navbar';
+import TableRow from '../components/table/tableRow';
 import apiClient from '../helpers/apiClient'
 
 function CronPage() {
@@ -56,7 +57,7 @@ function CronPage() {
                     <div className="table-wrapper">
                         <table className="responsive-table">
                             <thead className="responsive-table__head">
-                                <tr className="responsive-table__row">
+                                <TableRow>
                                     <th className="responsive-table__head__title responsive-table__head__title--name">
                                         Job Name
                                     </th>
@@ -72,7 +73,7 @@ function CronPage() {
                                     {allowed ? <th className="responsive-table__head__title responsive-table__head__title--actions">
                                         Actions
                                     </th> : null}
-                                </tr>
+                                </TableRow>
                             </thead>
                             <tbody className="responsive-table__body">
                                 {jobs.length > 0 ? jobs.map((job, index) => {
@@ -90,10 +91,10 @@ function CronPage() {
                                             {job.status}
                                         </td>
                                         {allowed ? <td className="responsive-table__body__text responsive-table__body__text--actions">
-                                            <div className='buttn-tables'>
+                                            <td className='buttn-tables'>
                                                 {job.status === 'running' ?
                                                     <a href="#" onClick={() => stopJob(job.id)} className='stop-btn'>Stop</a> : <a href="#" onClick={() => startJob(job.id)} className='run-btn'>Run</a>}
-                                            </div>
+                                            </td>
                                         </td> : null}
                                     </tr>);
                                 }) : null}

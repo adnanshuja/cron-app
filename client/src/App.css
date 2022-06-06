@@ -770,26 +770,26 @@ body.menu-open {
   width: 100%;
   margin: 2rem 0;
 }
-.table-wrapper .responsive-table__row {
+.table-wrapper .responsive-table-row {
   display: -ms-grid;
   display: grid;
   border-bottom: 1px solid #edeef2;
   padding: 0 1.5rem;
 }
 @media (min-width: 768px) {
-  .table-wrapper .responsive-table__row {
+  .table-wrapper .responsive-table-row {
     -ms-grid-columns: 2fr 1fr 2fr 2fr 1fr;
     grid-template-columns: 2fr 1fr 2fr 2fr 1fr;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .table-wrapper .responsive-table__row {
+  .table-wrapper .responsive-table-row {
     -ms-grid-columns: 1fr 2fr 1fr;
     grid-template-columns: 1fr 2fr 1fr;
   }
 }
-.table-wrapper .responsive-table__row th,
-.table-wrapper .responsive-table__row td {
+.table-wrapper .responsive-table-row th,
+.table-wrapper .responsive-table-row td {
   padding: 1rem;
 }
 .table-wrapper .responsive-table__head {
@@ -810,16 +810,16 @@ body.menu-open {
   font-weight: 500;
   text-transform: capitalize;
 }
-.table-wrapper .responsive-table__body .responsive-table__row {
+.table-wrapper .responsive-table__body .responsive-table-row {
   -webkit-transition: 0.1s linear;
   transition: 0.1s linear;
   -webkit-transition-property: color, background;
   transition-property: color, background;
 }
-.table-wrapper .responsive-table__body .responsive-table__row:last-child {
+.table-wrapper .responsive-table__body .responsive-table-row:last-child {
   border-bottom: none;
 }
-.table-wrapper .responsive-table__body .responsive-table__row:hover {
+.table-wrapper .responsive-table__body .responsive-table-row:hover {
   color: #525252;
   background-color: #f5f5f5;
 }
@@ -1191,26 +1191,6 @@ footer p {
 }
 
 
-.main-wrapp{
-  display: flex;
-  flex-wrap: nowrap;
-}
-.main-wrapp nav {
-  max-width: 320px;
-  flex: 320px 1;
-  height: calc(100vh - 60px);
-  background-color: #060b26;
-    display: flex;
-    justify-content: center;
-    transition: 850ms;
-}
-.main-wrapp .content-wrap{
-  max-width: calc(100% - 320px);
-  flex: calc(100% - 320px);
-
-  padding: 30px;
-  background-color: #fff;
-}
 .list-links ul li {
   display: block;
   padding: 10px 15px;
@@ -1226,9 +1206,6 @@ footer p {
   font-weight: 400;
 }
 
-
-.buttn-tables{
-}
 .buttn-tables a{
   display: inline-block;
   margin-right: 10px;

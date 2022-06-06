@@ -1,20 +1,22 @@
-import Navbar from '../components/navbar.js';
+import React from 'react';
+import Navbar from '../navbar/navbar';
 
-function BasicUser() {
-    
+import './layout.css';
+const  Layout = ({children, title, subTitle}) => {
     return (
         <div className="main-wrapp">
             <Navbar/>
             <div className="content-wrap">
             <section className="section-space">
                     <div className="heading-title text-left">
-                        <h2>This page is only visible to basic user</h2>
+                        <h2>{title}</h2>
+                        <h3>{subTitle}</h3>
                     </div>
+                    <div>{children}</div>
             </section>
             </div>
         </div>
     );
-  }
-  
-  export default BasicUser;
-  
+};
+
+export default Layout;
