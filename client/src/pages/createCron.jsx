@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import apiClient from '../helpers/apiClient';
+import { apiClient } from '../helpers';
 import { useNavigate } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';

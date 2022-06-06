@@ -1,13 +1,18 @@
 
-import { useState } from 'react';
-import apiClient from '../helpers/apiClient'
+import React, { useState, useContext } from 'react';
 import { useNavigate  } from "react-router-dom";
+
+import { apiClient, AuthProvider } from '../helpers';
+
+
 
 function LoginPage() {
 
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const  allValues  = useContext(AuthProvider);
+    console.log("--. here", allValues)
 
   const handleSubmit = async(event)=>{
     event.preventDefault();

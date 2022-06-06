@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/navbar/navbar';
 import TableRow from '../components/table/tableRow';
-import apiClient from '../helpers/apiClient'
+import { apiClient } from '../helpers'
 
 function CronPage() {
     const user = JSON.parse(localStorage.getItem('user'));

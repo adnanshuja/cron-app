@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import AuthContext from './authContext'
-import apiClient from '../apiClient';
+import React, { useState, useEffect, createContext } from 'react';
+import { apiClient } from '../../helpers';
+
+const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
-    const [authIsLoading, setAuthIsLoading] = useState();
+    const [authIsLoading, setAuthIsLoading] = useState(false);
 
     useEffect(() => {
         checkLogin();
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const contextValues = {
+    const stateValues = {
         currentUser,
         setCurrentUser,
         authIsLoading,
@@ -42,7 +43,8 @@ export const AuthProvider = ({ children }) => {
         checkLogin,
         handleLogout
     };
+    
     return (
-        <AuthContext.Provider value={contextValues}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value = {'Hello'}>{children}</AuthContext.Provider>
     );
 };

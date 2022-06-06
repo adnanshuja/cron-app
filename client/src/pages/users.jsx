@@ -4,7 +4,7 @@ import Layout from "../components/layout/layout";
 import ListingTable from "../components/table/table";
 
 
-import apiClient from '../helpers/apiClient';
+import { apiClient } from '../helpers';
 import { CONSTANTS } from "../helpers/constants";
 
 function UsersPage() {
