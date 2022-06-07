@@ -4,35 +4,35 @@ import * as IoIcons from 'react-icons/io';
 export const SidebarData = [
     {
         title: 'Home',
-        path: '/home',
+        path: '/dashboard',
         icon: <IoIcons.IoIosHome />,
         cName: 'nav-text',
         allowedRoles: ['admin', 'user', 'sub-admin', 'manager']
     },
     {
         title: 'Users',
-        path: '/users',
+        path: '/dashboard/users',
         icon: <IoIcons.IoMdPeople />,
         cName: 'nav-text',
         allowedRoles: ['admin', 'sub-admin']
     },
     {
         title: 'Jobs',
-        path: '/crons',
+        path: '/dashboard/crons',
         icon: <IoIcons.IoIosPaper />,
         cName: 'nav-text',
         allowedRoles: ['admin', 'user', 'sub-admin', 'manager']
     },
     {
         title: 'Basic User',
-        path: '/basic-user',
+        path: '/dashboard/basic-user',
         icon: <IoIcons.IoIosBug />,
         cName: 'nav-text',
         allowedRoles: [ 'user']
     },
     {
         title: 'Reports',
-        path: '/reports',
+        path: '/dashboard/reports',
         icon: <IoIcons.IoIosMap />,
         cName: 'nav-text',
         allowedRoles: ['admin', 'manager']

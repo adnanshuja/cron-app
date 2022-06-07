@@ -29,23 +29,6 @@ function CreateCron() {
             <h2>Create New Cron Job</h2>
             <h3>[ Only Admin role can create a new Cron job ] </h3>
           </div>
-          <Tabs>
-    <TabList>
-      <Tab>Title 1</Tab>
-      <Tab>Title 2</Tab>
-      <Tab>Title 2</Tab>
-    </TabList>
-
-    <TabPanel>
-      <h2>Any content 1</h2>
-    </TabPanel>
-    <TabPanel>
-      <h2>Any content 2</h2>
-    </TabPanel>
-    <TabPanel>
-      <h2>Any content 2</h2>
-    </TabPanel>
-  </Tabs>
           <div className="form-wrapper">
             <div className="maxwidth-600">
               <form onSubmit={handleSubmit}>

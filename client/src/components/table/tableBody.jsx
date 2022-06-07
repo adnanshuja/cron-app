@@ -1,10 +1,10 @@
 import React from 'react';
 import TableRow from './tableRow';
-const TableBody = ({ data }) => {
+const TableBody = ({ data, children }) => {
     return (
         <tbody className="responsive-table__body">
         {data.length?data.map((obj,index)=>
-        { return <TableRow key={index}>
+        { return <TableRow cKey={index}>
             {
                 Object.keys(obj).map((cKey, cIndex) => {
                     return Array.isArray(obj[cKey]) ? (
@@ -13,11 +13,12 @@ const TableBody = ({ data }) => {
                             return <span className="permmission-indicator permmission-indicator--create" key={i}>{permission}</span> })}
                     </td>
                     ) : (
-                        <td className="responsive-table__body__text responsive-table__body__text--name">{obj[cKey]}
+                        <td key={cIndex} className="responsive-table__body__text responsive-table__body__text--name">{obj[cKey]}
                     </td>
                     )
                 })
             }
+            {children}
             </TableRow>
             }):null}
         </tbody>

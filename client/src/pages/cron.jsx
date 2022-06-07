@@ -1,13 +1,33 @@
-import { useEffect, useState } from 'react';
-import Navbar from '../components/navbar/navbar';
-import TableRow from '../components/table/tableRow';
-import { apiClient } from '../helpers'
+import { useEffect, useState, useContext, useMemo } from 'react';
+import ListingTable from '../components/table/table';
+import TableHead from '../components/table/tableHead';
+import { apiClient, AuthContext } from '../helpers'
 
 function CronPage() {
-    const user = JSON.parse(localStorage.getItem('user'));
-    const permissionsCheck = ["manage", "update"];
-    const allowed = permissionsCheck.some((el) => user.permissions.includes(el));
     const [jobs, setJobs] = useState([]);
+    const { currentUser } = useContext(AuthContext);
+    const jobsTableHeadings = [
+        {
+            title: 'Job Name',
+            permissions: ['all']
+        },
+        {
+            title: 'Time String', 
+            permissions: ['all']
+        },
+        {
+            title: 'Job Query', 
+            permissions: ['all']
+        },
+        {
+            title: 'Job Status', 
+            permissions: ['all']
+        },
+        {
+            title: 'Actions', 
+            permissions: ['admin', 'sub-admin', 'manager']
+        }
+    ];
 
     useEffect(() => {
         async function fetchJobs() {
@@ -16,10 +36,14 @@ function CronPage() {
         }
         fetchJobs();
     }, []);
-
+    
+    const checkPermissions = (user) => {
+        const permissionsCheck = ["manage", "update"];
+        return permissionsCheck.some((el) => user.permissions.includes(el));
+    };
+    
     const stopJob = async (id) => {
         const { data } = await apiClient.patch(`cron/stop-job/${id}`);
-        console.log(data, "testing -->")
         if (data.id) {
             const newJobArray = jobs.map(job => {
                 if (job.id === id) {
@@ -29,9 +53,9 @@ function CronPage() {
             });
             setJobs(newJobArray);
         }
-
+        
     };
-
+    
     const startJob = async (id) => {
         const { data } = await apiClient.patch(`cron/start-job/${id}`);
         if (data.id) {
@@ -43,67 +67,41 @@ function CronPage() {
             });
             setJobs(newJobArray);
         }
-
+        
     };
+    
+    const allowed = useMemo(() => checkPermissions(currentUser), [currentUser]);
+
     return (
-        <div className="main-wrapp">
-            <Navbar />
-            <div className="content-wrap">
-                <section className="section-space">
-                    <div className="heading-title text-left">
-                        <h2>Cron Jobs</h2>
-                        <h3>[ All users can view this page, users with update permissions can start or stop the job ]</h3>
-                    </div>
-                    <div className="table-wrapper">
-                        <table className="responsive-table">
-                            <thead className="responsive-table__head">
-                                <TableRow>
-                                    <th className="responsive-table__head__title responsive-table__head__title--name">
-                                        Job Name
-                                    </th>
-                                    <th className="responsive-table__head__title responsive-table__head__title--email">
-                                        Time String
-                                    </th>
-                                    <th className="responsive-table__head__title responsive-table__head__title--role">
-                                        Job Query
-                                    </th>
-                                    <th className="responsive-table__head__title responsive-table__head__title--permission">
-                                        Job Status
-                                    </th>
-                                    {allowed ? <th className="responsive-table__head__title responsive-table__head__title--actions">
-                                        Actions
-                                    </th> : null}
-                                </TableRow>
-                            </thead>
-                            <tbody className="responsive-table__body">
-                                {jobs.length > 0 ? jobs.map((job, index) => {
-                                    return (<tr className="responsive-table__row" key={index}>
-                                        <td className="responsive-table__body__text responsive-table__body__text--name">
-                                            {job.name}
-                                        </td>
-                                        <td className="responsive-table__body__text responsive-table__body__text--email">
-                                            {job.cronString}
-                                        </td>
-                                        <td className="responsive-table__body__text responsive-table__body__text--role">
-                                            {job.cronQuery}
-                                        </td>
-                                        <td className={`responsive-table__body__text responsive-table__body__text--permission ${job.status === 'stopped ? run-btn : stop-btn'}`}>
-                                            {job.status}
-                                        </td>
-                                        {allowed ? <td className="responsive-table__body__text responsive-table__body__text--actions">
-                                            <td className='buttn-tables'>
-                                                {job.status === 'running' ?
-                                                    <a href="#" onClick={() => stopJob(job.id)} className='stop-btn'>Stop</a> : <a href="#" onClick={() => startJob(job.id)} className='run-btn'>Run</a>}
-                                            </td>
-                                        </td> : null}
-                                    </tr>);
-                                }) : null}
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
-        </div>
+        <div className="table-wrapper">
+        <table className="responsive-table">
+        <TableHead headings={jobsTableHeadings} user={currentUser} />
+            <tbody className="responsive-table__body">
+                {jobs.length > 0 ? jobs.map((job, index) => {
+                    return (<tr className="responsive-table-row" key={index}>
+                        <td className="responsive-table__body__text responsive-table__body__text--name">
+                            {job.name}
+                        </td>
+                        <td className="responsive-table__body__text responsive-table__body__text--email">
+                            {job.cronString}
+                        </td>
+                        <td className="responsive-table__body__text responsive-table__body__text--role">
+                            {job.cronQuery}
+                        </td>
+                        <td className={`responsive-table__body__text responsive-table__body__text--permission ${job.status === 'stopped ? run-btn : stop-btn'}`}>
+                            {job.status}
+                        </td>
+                        {allowed ? <td className="responsive-table__body__text responsive-table__body__text--actions">
+                            <div className='buttn-tables'>
+                                {job.status === 'running' ?
+                                    <a href="#" onClick={() => stopJob(job.id)} className='stop-btn'>Stop</a> : <a href="#" onClick={() => startJob(job.id)} className='run-btn'>Run</a>}
+                            </div>
+                        </td> : null}
+                    </tr>);
+                }) : null}
+            </tbody>
+        </table>
+    </div>
     );
 }
 

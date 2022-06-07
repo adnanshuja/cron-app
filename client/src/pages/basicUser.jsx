@@ -3,10 +3,10 @@ import { CONSTANTS } from '../helpers/constants';
 
 function BasicUser() {
     return (
-        <Layout 
-        title={CONSTANTS.pages.Basic_User_Page.title} 
-        subTitle= {CONSTANTS.pages.Basic_User_Page.subTitle}
-        />
+        <>
+        <h1>{CONSTANTS.pages.Basic_User_Page.title}</h1>
+        <h3>{CONSTANTS.pages.Basic_User_Page.subTitle}</h3>
+        </>
     );
   }
   

@@ -1,13 +1,17 @@
-import React from 'react';
-import * as AiIcons from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import { SidebarData } from './navbar-data';
-import './navbar.css';
+import React, { useContext } from 'react';
+import { Link, useNavigate, Outlet } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 
+import { AuthContext } from '../../helpers';
+import { SidebarData } from './navbar-data';
+import './navbar.css';
+
 function Navbar() {
-  const user = JSON.parse(localStorage.getItem('user'));
-  return (
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  return (currentUser) ?
+   (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         
@@ -16,7 +20,7 @@ function Navbar() {
             <li className='navbar-toggle'>   
             </li>
             {SidebarData.map((item, index) => {
-              return item.allowedRoles.includes(user.role) ?
+              return item.allowedRoles.includes(currentUser.role) ?
                (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
@@ -24,7 +28,7 @@ function Navbar() {
                     <span>{item.title}</span>
                    
                   </Link>
-                  {item.title ==='Jobs' && user.role == 'admin' ? <div className='submenu'>
+                  {item.title ==='Jobs' && currentUser.role == 'admin' ? <div className='submenu'>
                     <Link to={`${item.path}/create-cron`}>
                     Create New Job
                     </Link>
@@ -36,7 +40,7 @@ function Navbar() {
         </nav>
       </IconContext.Provider>
     </>
-  );
+  ) : navigate('/');
 }
 
 export default Navbar;

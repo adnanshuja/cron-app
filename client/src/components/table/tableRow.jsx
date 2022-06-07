@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TableRow = ({ children, key }) => {
+const TableRow = ({ children, cKey }) => {
     return (
-        <tr className="responsive-table-row" key={key}>
+        <tr className="responsive-table-row" key={cKey}>
             {children}
         </tr>
     );

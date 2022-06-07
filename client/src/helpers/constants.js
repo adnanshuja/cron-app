@@ -5,8 +5,8 @@ const CONSTANTS = {
             subTitle: 'This page is only visible to basic users'
         },
         Home_Page: {
-            title: 'Home Page',
-            subTitle: 'This home page is visible to all users'
+            title: 'Dashboard',
+            subTitle: 'This page is visible to all users'
         },
         Create_Cron_Page: {
             title: 'Create Cron Job',
