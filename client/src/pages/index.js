@@ -1,11 +1,22 @@
+import Dashboard from './main-pages/dashboard';
+import Users from './main-pages/users';
+import Crons from './main-pages/crons';
 import LoginPage from './login';
-import UsersPage from './users';
-import CronPage from './cron';
+import UsersList from './usersList';
+import CronsList from './cronList';
 import BasicUser from './basicUser';
-import HomePage from './home';
 import ReportsPage from './reports';
 import CreateCron from './createCron.jsx';
 
+
 export {
-    LoginPage, UsersPage, CronPage, BasicUser, HomePage, ReportsPage, CreateCron
+    LoginPage,
+    UsersList,
+    CronsList, 
+    BasicUser, 
+    Dashboard, 
+    ReportsPage, 
+    CreateCron,
+    Users,
+    Crons
 };

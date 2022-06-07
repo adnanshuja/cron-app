@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import Layout from '../components/layout/layout';
-import { CONSTANTS } from '../helpers/constants';
+import Layout from '../../components/layout/layout';
+import { CONSTANTS } from '../../helpers/constants';
 
 function HomePage() {
     return (

@@ -2,26 +2,48 @@
 import { useState } from 'react';
 import { apiClient } from '../helpers';
 import { useNavigate } from "react-router-dom";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-
-import Navbar from '../components/navbar/navbar';
+import Cron from 'react-cron-generator'
+import 'react-cron-generator/dist/cron-builder.css'
 
 function CreateCron() {
     const navigate = useNavigate();
     const [jobName, setJobName] = useState("");
-    const [timeString, setTimeString] = useState("");
+    const [cronString, setCronString] = useState("");
     const [jobQuery, setJobQuery] = useState("");
 
+    console.log(cronString)
     const handleSubmit = async(event)=>{
         event.preventDefault();
-       const {data} = await apiClient.post('cron/create', { name: jobName, cronString:timeString, cronQuery: jobQuery})
+       const {data} = await apiClient.post('cron/create', { name: jobName, cronString:cronString, cronQuery: jobQuery})
         console.log(data);
         navigate("/crons")
       }  
 
     return (
         <div className="main-wrapp">
+            <Cron
+        onChange={(e)=> {setCronString(e)}}
+        value={cronString}
+        showResultText={true}
+        showResultCron={false}
+        />
+        </div>
+    );
+}
+
+export default CreateCron;
+
+// user don't know about parameters [complete validation with drop downs]
+// need to start jobs on server restart
+// complete cruds
+// frontend validation for query
+// dropdown for function execution
+// function lists
+// backend tests
+// implement context api
+
+/*
+<div className="main-wrapp">
             <Navbar/>
             <div className="content-wrap">
             <section className="section-space">
@@ -47,8 +69,8 @@ function CreateCron() {
                     <div className="record-item">
                       <div className="input-field w-100">
                         <label className="">Cron time String</label>
-                        <input className="" type="text" placeholder="schedule string" value={timeString}
-                            onChange={(e) => setTimeString(e.target.value)}
+                        <input className="" type="text" placeholder="schedule string" value={cronString}
+                            onChange={(e) => setCronString(e.target.value)}
                         />
                       </div>
                     </div>
@@ -78,14 +100,4 @@ function CreateCron() {
         </section>
             </div>
         </div>
-    );
-}
-
-export default CreateCron;
-
-// user don't know about parameters [complete validation with drop downs]
-// need to start jobs on server restart
-// complete cruds
-// frontend validation for query
-// dropdown for function execution
-// function lists
+        */

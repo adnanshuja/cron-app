@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useRoutes } from "react-router-dom";
-import { LoginPage, UsersPage, BasicUser, HomePage, CreateCron, CronPage, ReportsPage } from './pages';
+import { LoginPage, Users, BasicUser, Dashboard, CreateCron, CronPage, ReportsPage, Crons } from './pages';
 
 
 function AppRoutes() {
@@ -9,18 +9,25 @@ function AppRoutes() {
       path: "/",
       element: <LoginPage />,
     },
-    { 
-      path: "dashboard", 
-      element: <HomePage allowedRoles={['manager', 'sub-admin', 'user', 'admin']}/>,
+    {
+      path: "dashboard",
+      element: <Dashboard allowedRoles={['manager', 'sub-admin', 'user', 'admin']} />,
       children: [
         { path: 'basic-user', element: <BasicUser allowedRoles={['user']} /> },
-        { path: 'users', element: <UsersPage allowedRoles={['admin', 'sub-admin']} /> },
-        { path: 'crons', element: <CronPage allowedRoles={['admin', 'manager', 'sub-admin', 'user']} /> },
-        { path: 'reports', element: <ReportsPage allowedRoles={['admin', 'manager']}  /> }
+        { path: 'users', element: <Users allowedRoles={['admin', 'sub-admin']} /> },
+        {
+          path: 'crons',
+          element: <Crons allowedRoles={['admin', 'manager', 'sub-admin', 'user']} />,
+          children: [{
+            path: 'create',
+            element: <CreateCron allowedRoles={['admin']} />
+          }],
+        },
+        { path: 'reports', element: <ReportsPage allowedRoles={['admin', 'manager']} /> }
       ]
     },
     {
-      path: "/login",
+      path: "*",
       element: <LoginPage />,
     },
   ]);

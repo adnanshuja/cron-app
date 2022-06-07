@@ -13,7 +13,7 @@ const CONSTANTS = {
             subTitle: 'This is visible only to users with write access'
         },
         Cron_List_Page: {
-            title: 'Cron Jobs List',
+            title: 'Jobs',
             subTitle: 'Visible to all users with read access'
         },
         Users_List_Page: {
