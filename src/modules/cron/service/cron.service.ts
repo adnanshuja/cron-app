@@ -98,4 +98,12 @@ export class CronService {
   remove(id: number) {
     return this.cronRepository.delete(id);
   }
+
+  async loadServices() {
+    const jobsToLoad = await this.cronRepository.find({ where: { status: 'running' }});
+    console.log(jobsToLoad);
+    for(const job of jobsToLoad){
+      await this.startCronJob(job.id);
+    }
+  }
 }
