@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { CronService } from './cron.service';
-import { CreateCronDto } from './dto/create-cron.dto';
+import { CronService } from '../service/cron.service';
+import { CreateCronDto } from '../dto/create-cron.dto';
 
 @Controller('cron')
 export class CronController {

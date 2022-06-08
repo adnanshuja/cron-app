@@ -1,20 +1,22 @@
 .main-wrapp{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.main-wrapp nav {
+  max-width: 320px;
+  flex: 320px 1;
+  height: calc(100vh - 0px);
+  background-color: #060b26;
     display: flex;
-    flex-wrap: nowrap;
-  }
-  .main-wrapp nav {
-    max-width: 320px;
-    flex: 320px 1;
-    height: calc(100vh - 60px);
-    background-color: #060b26;
-      display: flex;
-      justify-content: center;
-      transition: 850ms;
-  }
-  .main-wrapp .content-wrap{
-    max-width: calc(100% - 320px);
-    flex: calc(100% - 320px);
-  
-    padding: 30px;
-    background-color: #fff;
-  }
+    justify-content: flex-start;
+    transition: 850ms;
+    flex-direction: column;
+
+}
+.main-wrapp .content-wrap{
+  max-width: calc(100% - 320px);
+  flex: calc(100% - 320px);
+
+  padding: 30px;
+  background-color: #F8F9FA;
+}

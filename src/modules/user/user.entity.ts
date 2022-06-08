@@ -1,4 +1,4 @@
-import { Role } from "src/role/role.entity";
+import { Role } from "src/modules/role/role.entity";
 import { AfterInsert, BaseEntity, BeforeUpdate, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 export enum UserRole {

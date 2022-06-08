@@ -1,9 +1,9 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { from, map, Observable, switchMap } from 'rxjs';
-import { AuthService } from 'src/auth/auth.service';
-import { Role } from 'src/role/role.entity';
-import { RolesService } from 'src/role/role.service';
+import { AuthService } from 'src/modules/auth/auth.service';
+import { Role } from 'src/modules/role/role.entity';
+import { RolesService } from 'src/modules/role/role.service';
 import { Repository } from 'typeorm';
 import { CreateUserDto, UserLoginDto } from './dtos/create-user.dto';
 import { User } from './user.entity';

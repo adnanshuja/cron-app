@@ -1,6 +1,6 @@
 import { Logger, Module } from '@nestjs/common';
-import { CronService } from './cron.service';
-import { CronController } from './cron.controller';
+import { CronService } from './service/cron.service';
+import { CronController } from './controller/cron.controller';
 import { SchedulerRegistry } from '@nestjs/schedule';
 import { Connection } from 'typeorm';
 import { Cron } from './entities/cron.entity';

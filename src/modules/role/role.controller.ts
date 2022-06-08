@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { RolesService } from './role.service';
 import { UpdateRoleDto } from './dtos/update-role.dto';
-import { ResponseModel } from '../model/response.model';
+import { ResponseModel } from '../../helpers/model/response.model';
 
 @Controller('roles')
 export class RolesController {

@@ -20,14 +20,54 @@ function CreateCron() {
       }  
 
     return (
-        <div className="main-wrapp">
-            <Cron
-        onChange={(e)=> {setCronString(e)}}
-        value={cronString}
-        showResultText={true}
-        showResultCron={false}
-        />
-        </div>
+      <div className="main-wrapp">
+    <div className="form-wrapper">
+      <div className="maxwidth-600">
+        <form onSubmit={handleSubmit}>
+          <div className="grid-row">
+            <div className="grid-6">
+              <div className="record-item">
+                <div className="input-field w-100">
+                  <label className="">Job Name</label>
+                  <input className="" type="text" placeholder="job name" value={jobName} 
+                      onChange={(e) => setJobName(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="grid-6">
+              <div className="record-item">
+                <div className="input-field w-100">
+                  <label className="">Cron time String</label>
+                  <input className="" type="text" placeholder="schedule string" value={cronString}
+                      onChange={(e) => setCronString(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="grid-12">
+              <div className="record-item">
+                <div className="input-field w-100">
+                  <label className="">Query</label>
+                  <textarea placeholder="query" value={jobQuery} 
+                      onChange={(e) => setJobQuery(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="">
+            <div className="text-center">
+            <div className="submit-button p-t-5">
+                          <input type="submit" value="Create Job " className="theme-btn"/>
+                      </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
     );
 }
 
@@ -42,6 +82,14 @@ export default CreateCron;
 // backend tests
 // implement context api
 
+//<div className="main-wrapp">
+{/* <Cron
+onChange={(e)=> {setCronString(e)}}
+value={cronString}
+showResultText={true}
+showResultCron={false}
+/>
+</div> */}
 /*
 <div className="main-wrapp">
             <Navbar/>

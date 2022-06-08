@@ -2,10 +2,10 @@ import { BadRequestException, HttpException, HttpStatus, Injectable, Logger, Not
 import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { Connection, getManager, Repository } from 'typeorm';
-import { CreateCronDto } from './dto/create-cron.dto';
+import { CreateCronDto } from '../dto/create-cron.dto';
 import { validate } from "mysql-query-validator";
 import { InjectRepository } from '@nestjs/typeorm';
-import { Cron } from './entities/cron.entity';
+import { Cron } from '../entities/cron.entity';
 
 @Injectable()
 export class CronService {

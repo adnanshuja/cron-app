@@ -1,7 +1,7 @@
 import { Body, ClassSerializerInterceptor, Controller, Delete, ForbiddenException, Get, Param, Post, Put, Request, UseGuards, UseInterceptors } from '@nestjs/common';
-import { AbilityFactory, ACTIONS } from 'src/ability/ability.factory';
-import { AuthService } from 'src/auth/auth.service';
-import { JwtAuthGaurd } from 'src/auth/jwt-auth.gaurd';
+import { AbilityFactory, ACTIONS } from 'src/modules/ability/ability.factory';
+import { AuthService } from 'src/modules/auth/auth.service';
+import { JwtAuthGaurd } from 'src/modules/auth/jwt-auth.gaurd';
 import { CreateUserDto, UserLoginDto } from './dtos/create-user.dto';
 import { User } from './user.entity';
 import { UserService } from './user.service';

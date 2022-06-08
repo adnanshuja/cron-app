@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, BeforeUpdate } from 'typeorm';
-import { Role } from 'src/role/role.entity';
+import { Role } from 'src/modules/role/role.entity';
 
 export enum PermissionsList {
     MANAGE= 'manage',

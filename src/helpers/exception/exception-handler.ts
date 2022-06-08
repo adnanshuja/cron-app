@@ -11,7 +11,7 @@ import {
   RequestTimeoutException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { ResponseModel } from 'src/model/response.model';
+import { ResponseModel } from 'src/helpers/model/response.model';
 
 export class MyExceptionHandler {
   response: ResponseModel;

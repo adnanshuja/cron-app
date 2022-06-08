@@ -16,9 +16,12 @@ function Navbar() {
       <IconContext.Provider value={{ color: '#fff' }}>
         
         <nav className='nav-menu active'>
+        <div className='logo-wrapper'>
+            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzf6kg4w6JCHMn_ZsLfLf-BzgyuZgOuO6Oag&usqp=CAU' />
+          </div>
           <ul className='nav-menu-items'>
-            <li className='navbar-toggle'>   
-            </li>
+            {/* <li className='navbar-toggle'>   
+            </li> */}
             {SidebarData.map((item, index) => {
               return item.allowedRoles.includes(currentUser.role) ?
                (

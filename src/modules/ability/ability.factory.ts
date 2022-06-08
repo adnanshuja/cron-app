@@ -1,8 +1,8 @@
 import { Ability, AbilityBuilder, AbilityClass, ExtractSubjectType, InferSubjects } from "@casl/ability";
 import { Injectable } from "@nestjs/common";
-import { Cron } from "src/cron/entities/cron.entity";
-import { Permission } from "src/permission/permission.entity";
-import { User, UserRole } from "src/user/user.entity";
+import { Cron } from "src/modules/cron/entities/cron.entity";
+import { Permission } from "src/modules/permission/permission.entity";
+import { User, UserRole } from "src/modules/user/user.entity";
 
 export enum ACTIONS {
     MANAGE= 'manage', 
