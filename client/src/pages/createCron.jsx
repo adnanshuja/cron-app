@@ -78,7 +78,6 @@ export default CreateCron;
 // complete cruds
 // frontend validation for query
 // dropdown for function execution
-// function lists
 // backend tests
 // implement context api
 

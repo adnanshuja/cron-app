@@ -22,7 +22,7 @@ export class CronController {
   }
 
   @Patch('/stop-job/:id')
-  async update(@Param('id') id: string) {
+  async stopCronJob(@Param('id') id: string) {
     console.log('id', id)
     return await this.cronService.stopCronJob(+id);
   }
